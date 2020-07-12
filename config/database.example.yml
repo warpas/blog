@@ -1,0 +1,25 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  schema_search_path: "public,shared_extensions"
+  username: postgres
+  password: postgres
+  host: localhost
+  variables:
+    IntervalStyle:
+      iso_8601
+
+development:
+  <<: *default
+  database: blog_development
+
+test:
+  <<: *default
+  database: blog_test
+
+production:
+  <<: *default
+  database: blog_production
+  username: blog
+  password: pass
