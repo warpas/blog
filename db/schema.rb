@@ -10,9 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_07_12_211719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "comments", force: :cascade do |t|
+    t.string "commenter_name", null: false
+    t.string "commenter_url"
+    t.text "content", null: false
+    t.integer "score", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "post_id"
+    t.index ["post_id"], name: "index_comments_on_post_id"
+  end
+
+  create_table "external_posts", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "url", null: false
+    t.string "host_name", null: false
+    t.string "host_url", null: false
+    t.integer "read_time"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "content", null: false
+    t.integer "read_time"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "comments", "posts"
 end
