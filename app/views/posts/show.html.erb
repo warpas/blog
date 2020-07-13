@@ -1,0 +1,14 @@
+<h1>Post</h1>
+<h3>Title: <%= @post.title %></h3>
+<p><%= @post.content %></p>
+<h5>Comments</h5>
+<% if @post.comments.empty? %><p>The discussion is yet to be opened!</p><% end %>
+<ul>
+  <% @post.comments.each do |comment| %>
+    <li><%= link_to comment.content, comment %></li>
+  <% end %>
+</ul>
+<%= link_to "Add your comment", new_post_comment_path(@post.id) %>
+<footer>
+  <%= link_to "Back to the list", posts_path %>
+</footer>
