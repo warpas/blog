@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2020_07_12_211719) do
   end
 
   create_table "external_posts", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "title", null: false
     t.string "url", null: false
     t.string "host_name", null: false
     t.string "host_url", null: false
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2020_07_12_211719) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "title", null: false
     t.text "content", null: false
     t.integer "read_time"
     t.datetime "created_at", precision: 6, null: false
