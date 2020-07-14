@@ -1,0 +1,6 @@
+<h1>Create a new comment</h1>
+<p>For now - just click the button to create an empty comment</p>
+<%= form_with model: [@post, @comment] do %>
+  <%= submit_tag("Add the comment") %>
+<% end %>
+

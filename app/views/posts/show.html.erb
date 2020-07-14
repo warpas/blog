@@ -5,7 +5,7 @@
 <% if @post.comments.empty? %><p>The discussion is yet to be opened!</p><% end %>
 <ul>
   <% @post.comments.each do |comment| %>
-    <li><%= link_to comment.content, comment %></li>
+    <li><%= link_to comment.content, post_comment_path(@post.id) %></li>
   <% end %>
 </ul>
 <%= link_to "Add your comment", new_post_comment_path(@post.id) %>

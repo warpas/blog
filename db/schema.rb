@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_07_12_211719) do
     t.integer "score", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "post_id"
+    t.bigint "post_id", null: false
     t.index ["post_id"], name: "index_comments_on_post_id"
   end
 
