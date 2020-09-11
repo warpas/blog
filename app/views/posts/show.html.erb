@@ -1,7 +1,7 @@
 <h1>Post</h1>
 <h3>Title: <%= @post.title %></h3>
 <p><%= @post.content %></p>
-<h5>Comments</h5>
+<h5>Comments <%= link_to "list", post_comments_path(@post.id) %></h5>
 <% if @post.comments.empty? %><p>The discussion is yet to be opened!</p><% end %>
 <ul>
   <% @post.comments.each do |comment| %>

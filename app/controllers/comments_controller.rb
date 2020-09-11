@@ -3,6 +3,11 @@ class CommentsController < ApplicationController
     @post = Post.find(comment_params[:post_id])
   end
 
+  def show
+    @post = Post.find(comment_params[:post_id])
+    @comment = Comment.find(comment_params[:id])
+  end
+
   def new
     @post = Post.find(comment_params[:post_id])
     @comment = Comment.new
@@ -25,6 +30,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.permit(:post_id, :authenticity_token, :commit)
+    params.permit(:id, :post_id, :authenticity_token, :commit)
   end
 end

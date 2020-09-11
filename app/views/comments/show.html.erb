@@ -1,0 +1,11 @@
+<%= link_to "All comments", post_comments_path(@post.id) %>
+
+<h1>Comment</h1>
+<p><%= @comment.content %></p>
+<h5>id <%= @comment.id %></h5>
+<h5>Post title: <%= @post.title %></h5>
+<h5>Commenter's name: <%= @comment.commenter_name %></h5>
+<h5>Commenter url: <%= @comment.commenter_url %></h5>
+<h5>Comment score: <%= @comment.score %></h5>
+<h5>Comment creation date: <%= @comment.created_at %></h5>
+<h5>Comment update date: <%= @comment.updated_at %></h5>

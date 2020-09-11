@@ -1,2 +1,9 @@
 <h1>Comments list</h1>
-<h3>for post <%#= @post.id %></h3>
+<h3>for post <%= @post.id %></h3>
+<% if @post.comments.empty? %><p>The discussion is yet to be opened!</p><% end %>
+<ul>
+  <% @post.comments.each do |comment| %>
+    <li><%= link_to comment.content, post_comment_path(@post.id, comment.id) %></li>
+  <% end %>
+</ul>
+<%= link_to "Post link", post_path(@post.id) %>
