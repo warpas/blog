@@ -1,6 +1,18 @@
 <h1>Create a new comment</h1>
 <p>For now - just click the button to create an empty comment</p>
-<%= form_with model: [@post, @comment] do %>
-  <%= submit_tag("Add the comment") %>
+<%= form_with model: [@post, Comment.new] do |form| %>
+  <div class="comment_form_field">
+    <%= form.label :content, "Your comment" %>
+    <%= form.text_field :content %>
+  </div>
+  <div class="comment_form_field">
+    <%= form.label :commenter_name, "Your name/nickname (optional)" %>
+    <%= form.text_field :commenter_name %>
+  </div>
+  <div class="comment_form_field">
+    <%= form.label :commenter_url, "Your website (optional)" %>
+    <%= form.text_field :commenter_url %>
+  </div>
+  <%= form.submit "Add the comment" %>
 <% end %>
 
