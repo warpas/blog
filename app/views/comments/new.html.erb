@@ -1,5 +1,4 @@
-<h1>Create a new comment</h1>
-<p>For now - just click the button to create an empty comment</p>
+<h1>Add your comment</h1>
 <%= form_with model: [@post, Comment.new] do |form| %>
   <div class="comment_form_field">
     <%= form.label :content, "Your comment" %>
