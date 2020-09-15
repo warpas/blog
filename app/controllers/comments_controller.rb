@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
     @post = Post.find(comment_params[:post_id])
     @comment = Comment.new
     @comment.post_id = @post.id
-    @comment.commenter_name = comment_details[:commenter_name]
+    @comment.commenter_name = comment_details[:commenter_name].empty? ? "Anonymous" : comment_details[:commenter_name]
     @comment.commenter_url = comment_details[:commenter_url]
     @comment.content = comment_details[:content]
     if @comment.save
