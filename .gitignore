@@ -35,8 +35,15 @@
 /config/master.key
 /config/database.yml
 
-# Ignore master key for decrypting credentials and more.
-/config/master.key
+# Yarn 2 zero-installs
+.yarn/*
+!.yarn/cache
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+
+# Ignore misc files (TODO: check if they are necessary)
 /public/packs
 /public/packs-test
 /node_modules
